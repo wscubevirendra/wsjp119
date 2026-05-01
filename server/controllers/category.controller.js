@@ -14,19 +14,17 @@ const create = async (req, res) => {
             if (err) return sendServerError(res, "Unable to upload file")
             await CategoryModel.create({ name, slug, image: img_name });
             return sendCreated(res)
-
         })
 
 
     } catch (error) {
         return sendServerError(res, error);
     }
-}
+};
 
 const read = async (req, res) => {
     try {
         const query = req.query;
-        console.log(query)
         const filter = {};
         const limit = query.limit ? parseInt(query.limit) : 0;
         if (query.status) filter.status = query.status === "true";
@@ -58,7 +56,6 @@ const readById = async (req, res) => {
     }
 };
 
-
 const statusUpdate = async (req, res) => {
     try {
         const { field } = req.body;
@@ -79,7 +76,7 @@ const statusUpdate = async (req, res) => {
         return sendServerError(res);
     }
 
-}
+};
 
 const deleteById = async (req, res) => {
     try {
@@ -92,7 +89,7 @@ const deleteById = async (req, res) => {
 
         return sendServerError(res);
     }
-}
+};
 
 const update = async (req, res) => {
     try {
@@ -131,8 +128,6 @@ const update = async (req, res) => {
         return sendServerError(res);
     }
 };
-
-
 
 
 module.exports = {

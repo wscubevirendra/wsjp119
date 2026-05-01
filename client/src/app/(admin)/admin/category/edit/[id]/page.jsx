@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { findCategoriById } from "@/api/api-call";
 
 export default function CategoryEdit({ params }) {
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState("");
     const { id } = use(params);
     const nameRef = useRef();
     const slugRef = useRef();

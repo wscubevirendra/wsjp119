@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { lsTocart } from '@/redux/features/cartSlice';
 
-export default function Header() {
+export default function Header({ user }) {
+    console.log(user, "user-data")
     const cart = useSelector((store) => store.cart);
     const dispacher = useDispatch();
 
@@ -80,8 +81,12 @@ export default function Header() {
                 <div className="flex items-center gap-6">
                     <div className="hidden md:block text-right">
                         <p className="text-xs text-gray-500">WELCOME</p>
+                        {
+                            user ? user.name :
+                                <Link href="/login"><p className="font-semibold text-sm">LOG IN / REGISTER</p></Link>
+                        }
 
-                        <Link href="/login"><p className="font-semibold text-sm">LOG IN / REGISTER</p></Link>
+
 
 
                     </div>

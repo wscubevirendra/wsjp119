@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTocart,qtyChange } from '@/redux/features/cartSlice'
+import { addTocart, qtyChange } from '@/redux/features/cartSlice'
 
 
 export default function AddToCartButton({ product, imageBaseUrl }) {
@@ -9,6 +9,11 @@ export default function AddToCartButton({ product, imageBaseUrl }) {
     const cartItem = cart?.items.find((item) => item.id == product._id)
     console.log(cartItem)
     const dispacher = useDispatch()
+
+    //if user is not login --only manage localStorage
+    //if user is login then manage localStorage  with DataBase
+
+
     return (
         <div className="p-3 pt-0">
             {

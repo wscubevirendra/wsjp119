@@ -23,7 +23,7 @@ export default async function home() {
 
           <ul className="space-y-3">
             {categories?.map((cat, index) => (
-              <Link href={`/products/${cat.slug}`} key={index}>
+              <Link href={`/products/${cat.slug}`} key={cat._id}>
                 <li className="flex items-center mt-4 justify-between px-4 py-3 rounded-lg border hover:border-teal-500 transition cursor-pointer">
 
                   <div className="flex items-center gap-3">

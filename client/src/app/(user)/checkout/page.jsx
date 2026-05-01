@@ -1,7 +1,10 @@
+import Checkout from '@/components/user/Checkout'
 import React from 'react'
+import { getMe } from '@/api/api-call'
 
-export default function Checkout() {
+export default async function page() {
+  const { user } = await getMe()
   return (
-    <div>checkout page....</div>
+    <Checkout user={user} />
   )
 }
